@@ -1,19 +1,26 @@
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../Services/Slices/store';
+import { fetchJoke } from '../../Api/jokeApi';
+import RandomJokes from '../RandomJokes/RandomJokes';
+import UserJokes from '../UserJokes/UserJokes';
 import './App.css';
-//import { fetchJoke } from '../Api/jokeApi';
+
+const url = 'https://official-joke-api.appspot.com/jokes/programming/ten';
 
 function App() {
+  const dispatch: AppDispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchJoke(url));
+  }, [dispatch]);
 
-  const test = fetch('https://official-joke-api.appspot.com/jokes/programming/ten')
-
-  console.log(test);
-  
-
-  useEffect(() => {}, [])
-  return( <div>
-    
-  </div>);
+  return (
+    <div>
+      <RandomJokes />
+      <UserJokes />
+    </div>
+  );
 }
 
 export default App;

@@ -1,0 +1,19 @@
+.joke-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 150px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.joke-element-text { 
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.joke-element > Button { 
+  align-self: flex-end;
+}

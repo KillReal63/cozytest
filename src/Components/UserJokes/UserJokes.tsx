@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ApiJokeContainer = () => {
+const UserJokes = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const ApiJokeContainer = () => {
   );
 };
 
-export default ApiJokeContainer;
+export default UserJokes;

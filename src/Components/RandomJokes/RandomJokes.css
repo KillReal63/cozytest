@@ -1,0 +1,6 @@
+.random-jokes-container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  align-items: center;
+}

@@ -1,0 +1,11 @@
+.ui-button {
+  max-width: 60px;
+  max-height: 50px;
+  background-color: black;
+  color: white;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 10px;
+}
