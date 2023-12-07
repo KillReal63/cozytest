@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../Services/Slices/store';
-import { fetchJoke } from '../../Api/jokeApi';
+import { fetchJoke } from '../../api/jokeApi';
 import RandomJokes from '../RandomJokes/RandomJokes';
 import UserJokes from '../UserJokes/UserJokes';
 import './App.css';
@@ -16,7 +16,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='app'>
       <RandomJokes />
       <UserJokes />
     </div>

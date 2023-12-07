@@ -1,12 +1,12 @@
-import { useState, FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import Button from '../../Ui/Button/Button';
 import { Jokes } from '../../Services/Slices/Jokes/jokes';
 import './JokeItem.css';
 
 type Props = {
   jokes?: Jokes[] | undefined;
-  onAdd?: () => void;
-  onRemove?: () => void;
+  onAdd?: (id: number) => void | undefined;
+  onRemove?: (id: string) => void;
   favorite?: boolean;
 };
 
@@ -16,23 +16,18 @@ const JokeItem: FC<PropsWithChildren<Props>> = ({
   onRemove,
   favorite,
 }) => {
-  const [isAdded, setIsAdded] = useState(favorite);
-
-  // console.log(jokes, 'jokes');
-
-  const handleButtonClick = () => {
-    // if (isAdded) {
-    //   onRemove();
-    // } else {
-    //   onAdd();
-    // }
-    setIsAdded(!isAdded);
+  const handleButtonClick = (id: any) => {
+    if (favorite) {
+      onRemove && onRemove(id);
+    } else {
+      onAdd && onAdd(id);
+    }
   };
 
-  const JokeElement =
+  return (
     jokes &&
-    jokes.map((item) => (
-      <div className='joke-element' key={item.id}>
+    jokes.map((item, index) => (
+      <div className='joke-element' key={index}>
         <h4 style={{ marginBottom: 10 }}>Joke №{item.id}</h4>
         <div style={{ marginBottom: 10 }}>
           <span className='joke-element-text'>Setup:</span>
@@ -42,11 +37,14 @@ const JokeItem: FC<PropsWithChildren<Props>> = ({
           <span className='joke-element-text'>Punchline:</span>
           {item.punchline}
         </div>
-        <Button onClick={handleButtonClick}>{isAdded ? 'X' : 'Add'}</Button>
+        <Button
+          onClick={() => handleButtonClick(item._id ? item._id : item.id)}
+        >
+          {favorite ? 'X' : 'Add'}
+        </Button>
       </div>
-    ));
-
-  return JokeElement;
+    ))
+  );
 };
 
 export default JokeItem;

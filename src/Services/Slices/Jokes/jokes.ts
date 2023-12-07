@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchJoke } from '../../../Api/jokeApi';
+import { fetchJoke } from '../../../api/jokeApi';
 import { RootState } from '../store';
 
 export type Jokes = {
@@ -7,20 +7,22 @@ export type Jokes = {
   type: string;
   setup: string;
   punchline: string;
+  _id?: string | undefined;
 };
 
 const initialState = {
   loading: false,
   error: null || undefined,
   data: [] as Jokes[],
+  userJokes: [] as Jokes[],
 };
 
 const jokesSlice = createSlice({
   name: 'jokes',
   initialState,
   reducers: {
-    updateJokes(state, { payload }) {
-      state.data = payload;
+    addJoke(state, action) {
+      state.userJokes = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -41,7 +43,7 @@ const jokesSlice = createSlice({
   },
 });
 
-export const { updateJokes } = jokesSlice.actions;
+export const { addJoke } = jokesSlice.actions;
 
 export default jokesSlice.reducer;
 

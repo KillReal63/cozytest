@@ -4,6 +4,6 @@ import { useMemo } from 'react';
 
 export const useJokes = () => {
   const jokes = useSelector(getJokes);
-  
-  return useMemo(() => ({jokes}), [jokes]);
+
+  return useMemo(() => ({ jokes }), [jokes]);
 };
