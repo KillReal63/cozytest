@@ -1,30 +1,48 @@
 import JokeItem from '../JokeItem/JokeItem';
-import { useJokes } from '../../Hooks/useJokes';
 import './UserJokes.css';
-import { Jokes, addJoke } from '../../Services/Slices/Jokes/jokes';
+import {
+  Jokes,
+  dislikeJoke,
+  likeJoke,
+  removeJoke,
+} from '../../Services/Slices/Jokes/jokes';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../Services/Slices/store';
+import { FC } from 'react';
+import Button from '../../Ui/Button/Button';
 
-const UserJokes = () => {
+const UserJokes: FC<Jokes> = ({ jokes }) => {
   const dispatch: AppDispatch = useDispatch();
-  const { jokes } = useJokes();
 
-  const userJoke =
-    jokes.userJokes.length === 0
-      ? JSON.parse(localStorage.getItem('favorite-jokes') as string)
-      : jokes.userJokes;
-
-  const onRemove = (id: string) => {
-    const newArr = userJoke.filter((item: Jokes) => item._id !== id);
-    dispatch(addJoke(newArr));
-    localStorage.setItem('favorite-jokes', JSON.stringify(newArr));
-  };
+  console.log(jokes.userJokes);
 
   return (
     <div>
       <h1 style={{ marginBottom: 5 }}>Favorite jokes</h1>
       <div className='user-jokes'>
-        <JokeItem jokes={userJoke} favorite onRemove={onRemove} />
+        {jokes.userJokes.map((item, index) => (
+          <JokeItem
+            jokes={item}
+            key={index}
+            control={
+              <div>
+                <Button onClick={() => dispatch(removeJoke(item.id))}>
+                  Delete
+                </Button>
+                <Button onClick={() => dispatch(likeJoke(item.id))}>
+                  Like: {item.likes}
+                </Button>
+                <Button
+                  onClick={() => {
+                    dispatch(dislikeJoke(item.id));
+                  }}
+                >
+                  Dislike
+                </Button>
+              </div>
+            }
+          />
+        ))}
       </div>
     </div>
   );
