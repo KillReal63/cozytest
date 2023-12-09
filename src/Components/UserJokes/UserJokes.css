@@ -1,10 +1,11 @@
 .user-jokes {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  max-width: 500px;
   max-height: 800px;
   overflow-y: scroll;
   align-items: center;
+  margin-left: 60px;
 }
 
 .custom_scroll::-webkit-scrollbar {
