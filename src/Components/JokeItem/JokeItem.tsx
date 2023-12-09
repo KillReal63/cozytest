@@ -10,12 +10,13 @@ type Props = {
 const JokeItem: FC<Props> = ({ jokes, control }) => {
   return (
     <div className='joke-element'>
-      <h4 style={{ marginBottom: 10 }}>Joke №{jokes.id}</h4>
-      <div style={{ marginBottom: 10 }}>
+      <h4 className='joke-containers'>Joke №{jokes.id}</h4>
+      <div className='joke-containers'>
         <span className='joke-element-text'>Setup:</span>
+
         {jokes.setup}
       </div>
-      <div style={{ marginBottom: 10 }}>
+      <div className='joke-containers'>
         <span className='joke-element-text'>Punchline:</span>
         {jokes.punchline}
       </div>

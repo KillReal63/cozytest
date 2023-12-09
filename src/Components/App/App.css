@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -8,4 +7,5 @@
 .app {
   display: flex;
   justify-content: center;
+  background-color: #FFBE98;
 }

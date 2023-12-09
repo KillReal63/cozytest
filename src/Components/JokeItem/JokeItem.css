@@ -8,13 +8,19 @@
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px;
+  background-color: #553f33;
+  color: #aa7f65;
 }
 
-.joke-element-text { 
+.joke-containers {
+  margin-bottom: 10px;
+}
+
+.joke-element-text {
   font-weight: bold;
   margin-right: 5px;
 }
 
-.joke-element > Button { 
+.joke-element > Button {
   align-self: flex-end;
 }
