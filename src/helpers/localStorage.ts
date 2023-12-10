@@ -1,8 +1,8 @@
-import { Joke, Jokes } from '../Services/Slices/Jokes/jokes';
+import { Jokes } from '../Services/Slices/Jokes/jokes';
 
 const k = 'favorite-jokes';
 
-export const setLocal = (items: Joke | Jokes) => {
+export const setLocal = (items: Jokes) => {
   try {
     const serializedData = JSON.stringify(items);
     localStorage.setItem(k, serializedData);
@@ -10,7 +10,6 @@ export const setLocal = (items: Joke | Jokes) => {
     console.error(err);
   }
 };
-
 export const getLocal = () => {
   try {
     const serializedData = localStorage.getItem(k);
