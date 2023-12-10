@@ -13,7 +13,6 @@ const JokeItem: FC<Props> = ({ jokes, control }) => {
       <h4 className='joke-containers'>Joke №{jokes.id}</h4>
       <div className='joke-containers'>
         <span className='joke-element-text'>Setup:</span>
-
         {jokes.setup}
       </div>
       <div className='joke-containers'>

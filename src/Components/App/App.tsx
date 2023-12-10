@@ -4,7 +4,7 @@ import { AppDispatch } from '../../Services/Slices/store';
 import { fetchJoke } from '../../api/jokeApi';
 import RandomJokes from '../RandomJokes/RandomJokes';
 import UserJokes from '../UserJokes/UserJokes';
-import { useJokes } from '../../Hooks/useJokes';
+import { useJokes } from '../../hooks/useJokes';
 import './App.css';
 
 const url = 'https://official-joke-api.appspot.com/jokes/programming/ten';

@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchJoke = createAsyncThunk('joke', async (url: string) => {
-  // eslint-disable-next-line no-useless-catch
   try {
     const res = await fetch(url);
     if (!res.ok) {
@@ -10,6 +9,6 @@ export const fetchJoke = createAsyncThunk('joke', async (url: string) => {
     const result = await res.json();
     return result;
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 });

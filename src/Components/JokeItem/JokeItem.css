@@ -10,6 +10,18 @@
   padding: 10px;
   background-color: #553f33;
   color: #aa7f65;
+  opacity: 0;
+  animation: show 2s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .joke-containers {
